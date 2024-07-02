@@ -1,0 +1,40 @@
+package com.spotify.utils;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Optional;
+import java.util.Properties;
+import java.util.stream.Collectors;
+
+public class ConfigLoader {
+ public  final Properties properties;
+ private static ConfigLoader configLoader;
+ private ConfigLoader(){
+     properties = PropertyUtils.propertyLoader("/src/test/resources/config.properties");
+ }
+
+ public static ConfigLoader getInstance(){
+     if(configLoader == null){
+         configLoader = new ConfigLoader();
+     }
+     return configLoader;
+ }
+
+ public String getClientId(){
+     String prop = properties.getProperty("client_id");
+     if(prop!=null)return prop;
+     else throw new RuntimeException("Client id is not specified in config.properties file");
+
+ }
+
+    public String getClientSecret(){
+        String prop = properties.getProperty("client_secret");
+        if(prop!=null)return prop;
+        else throw new RuntimeException("Client secret is not specified in config.properties file");
+
+    }
+
+
+
+
+}

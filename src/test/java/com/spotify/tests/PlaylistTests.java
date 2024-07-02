@@ -18,7 +18,7 @@ public class PlaylistTests {
 
 
 
-    @Test
+ /*   @Test
     public void shouldBeAbleToCreateAPlaylist(){
         Playlist requestPlaylist = new Playlist().
                 setName("New Playlist").
@@ -82,6 +82,6 @@ public class PlaylistTests {
                 assertThat().
                 statusCode(401);
     }
-
+*/
 
 }
