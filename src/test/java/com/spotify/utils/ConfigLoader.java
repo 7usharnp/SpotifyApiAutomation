@@ -1,10 +1,6 @@
 package com.spotify.utils;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
 import java.util.Properties;
-import java.util.stream.Collectors;
 
 public class ConfigLoader {
  public  final Properties properties;

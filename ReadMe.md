@@ -37,3 +37,39 @@ Now to fetch details frm the file use
 ConfigLoader.getInstance().getClientId();
 ```
 
+### Lombok Integration:
+ * Add lombox dependency
+```xml
+ <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.30</version>
+            <scope>provided</scope>
+        </dependency>
+```
+* Create your POJO class using Lombok’s @Builder annotation. For example:
+  
+```java
+import lombok.Builder;
+import lombok.Data;
+
+@Data
+@Builder
+public class MyPojo {
+private String view;
+}
+```
+* To make a POST request using RestAssured, create an instance of your POJO using the Lombok builder pattern:
+
+```java
+MyPojo pojo = MyPojo.builder()
+.view("some-value")
+.build();
+
+RestAssured.given()
+.contentType(ContentType.JSON)
+.body(pojo)
+.post("your-api-endpoint");
+```
+
+### Integrating Allure Reporting
