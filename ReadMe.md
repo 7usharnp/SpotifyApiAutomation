@@ -367,3 +367,14 @@ now to assert this statuscode in code you can use
 ```java
 asssertStatusCode(response.statusCode,StatusCode.CODE_400.getCode(),StatusCode.CODE_400.getMsg());
 ```
+---
+### Enable for multiple Environments
+
+We can send environment variable with maven command 
+```
+mvn clean test -DBASE_URI="URI" -DACCOUNT_BASE_URI="ACCOUNT URI" 
+```
+Now in code instead of entering static value you can enter 
+```java
+setBaseUri(System.getProperty("BASE_URI"));
+```
